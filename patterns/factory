@@ -1,0 +1,35 @@
+using System;
+
+//Інтерфейс для створення продуктів
+public interface IProduct
+{
+    void Create();
+}
+
+//Конкретний продукт
+public class ConcreteProduct : IProduct
+{
+    public void Create()
+    {
+        Console.WriteLine("Це конкретний продукт");
+    }
+}
+
+//Фабричний метод
+public class ProductFactory
+{
+    public static IProduct CreateProduct()
+    {
+        return new ConcreteProduct();
+    }
+}
+
+//Клас для використання фабричного методу
+class Program
+{
+    static void Main()
+    {
+        IProduct product = ProductFactory.CreateProduct();
+        product.Create();
+    }
+}
